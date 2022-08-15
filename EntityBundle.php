@@ -89,7 +89,9 @@ class EntityBundle extends ConditionPluginBase implements ContainerFactoryPlugin
     }
     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
     $entity = $this->getContextValue($this->getDerivativeId());
-    return !empty($this->configuration['bundles'][$entity->bundle()]);
+    if($entity){
+      return !empty($this->configuration['bundles'][$entity->bundle()]);
+    }
   }
 
   /**
